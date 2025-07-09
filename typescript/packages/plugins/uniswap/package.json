@@ -1,5 +1,5 @@
 {
-    "name": "@goat-sdk/plugin-uniswap",
+    "name": "@wardenprotocol/plugin-uniswap",
     "version": "0.2.15",
     "files": ["dist/**/*", "README.md", "package.json"],
     "scripts": {
