@@ -1,5 +1,12 @@
 # @goat-sdk/plugin-orca
 
+## 0.2.20
+
+### Patch Changes
+
+- Updated dependencies
+  - @goat-sdk/wallet-solana@0.3.1
+
 ## 0.2.19
 
 ### Patch Changes

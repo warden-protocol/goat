@@ -1,5 +1,11 @@
 # @goat-sdk/wallet-solana
 
+## 0.3.1
+
+### Patch Changes
+
+- Upgrade solana version
+
 ## 0.2.16
 
 ### Patch Changes
