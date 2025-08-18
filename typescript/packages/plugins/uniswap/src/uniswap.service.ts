@@ -48,7 +48,7 @@ export class UniswapService {
 
         const transaction = await walletClient.sendTransaction({
             to: approval.to,
-            value: fromHex(approval.value, 'bigint'),
+            value: fromHex(approval.value, "bigint"),
             data: approval.data,
         });
 
@@ -102,7 +102,7 @@ export class UniswapService {
 
         const tx = await walletClient.sendTransaction({
             to: swap.to,
-            value: fromHex(swap.value, 'bigint'),
+            value: fromHex(swap.value, "bigint"),
             data: swap.data,
         });
 
