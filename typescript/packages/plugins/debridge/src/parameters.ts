@@ -139,10 +139,7 @@ export class getBridgeQuoteParametersSchema extends createToolParameters(
         referralCode: z.string().optional(),
 
         /** Affiliate fee percentage */
-        affiliateFeePercent: z
-            .number()
-            .optional()
-            .describe("Optional: Affiliate fee percentage."),
+        affiliateFeePercent: z.number().optional().describe("Optional: Affiliate fee percentage."),
 
         /** Affiliate fee recipient */
         affiliateFeeRecipient: z
@@ -258,10 +255,7 @@ export class createBridgeOrderParametersSchema extends createToolParameters(
         referralCode: z.string().optional(),
 
         /** Affiliate fee percentage */
-        affiliateFeePercent: z
-            .number()
-            .optional()
-            .describe("Optional: Affiliate fee percentage."),
+        affiliateFeePercent: z.number().optional().describe("Optional: Affiliate fee percentage."),
 
         /** Affiliate fee recipient */
         affiliateFeeRecipient: z

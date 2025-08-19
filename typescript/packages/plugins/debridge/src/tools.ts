@@ -62,7 +62,7 @@ export class DebridgeTools {
             const userAddress = await walletClient.getAddress();
 
             const params = new URLSearchParams();
-            
+
             if (isSameChain) {
                 params.append("chainId", parameters.srcChainId);
                 params.append("tokenIn", parameters.srcChainTokenIn);
