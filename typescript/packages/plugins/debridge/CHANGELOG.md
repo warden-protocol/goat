@@ -1,5 +1,11 @@
 # @goat-sdk/plugin-debridge
 
+## 0.0.8
+
+### Patch Changes
+
+- 2cfed25: Add affiliate parameter
+
 ## 0.0.7
 
 ### Patch Changes
