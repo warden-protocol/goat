@@ -61,26 +61,43 @@ export class DebridgeTools {
             const isSameChain = parameters.srcChainId === parameters.dstChainId;
             const userAddress = await walletClient.getAddress();
 
+            const params = new URLSearchParams();
+            
+            if (isSameChain) {
+                params.append("chainId", parameters.srcChainId);
+                params.append("tokenIn", parameters.srcChainTokenIn);
+                params.append("tokenInAmount", parameters.srcChainTokenInAmount);
+                params.append("tokenOut", parameters.dstChainTokenOut);
+                params.append("tokenOutRecipient", userAddress);
+                params.append("slippage", parameters.slippage?.toString() || "auto");
+                params.append("referralCode", parameters.referralCode || "21064");
+                if (parameters.affiliateFeeRecipient) {
+                    params.append("affiliateFeeRecipient", parameters.affiliateFeeRecipient);
+                }
+                if (parameters.affiliateFeePercent) {
+                    params.append("affiliateFeePercent", parameters.affiliateFeePercent.toString());
+                }
+            } else {
+                params.append("srcChainId", parameters.srcChainId);
+                params.append("srcChainTokenIn", parameters.srcChainTokenIn);
+                params.append("srcChainTokenInAmount", parameters.srcChainTokenInAmount);
+                params.append("dstChainId", parameters.dstChainId);
+                params.append("dstChainTokenOut", parameters.dstChainTokenOut);
+                params.append("dstChainTokenOutAmount", "auto");
+                params.append("prependOperatingExpenses", "true");
+                params.append("additionalTakerRewardBps", "0");
+                params.append("referralCode", parameters.referralCode || "21064");
+                if (parameters.affiliateFeeRecipient) {
+                    params.append("affiliateFeeRecipient", parameters.affiliateFeeRecipient);
+                }
+                if (parameters.affiliateFeePercent) {
+                    params.append("affiliateFeePercent", parameters.affiliateFeePercent.toString());
+                }
+            }
+
             const url = isSameChain
-                ? `${this.options.baseUrl}/chain/transaction?${new URLSearchParams({
-                      chainId: parameters.srcChainId,
-                      tokenIn: parameters.srcChainTokenIn,
-                      tokenInAmount: parameters.srcChainTokenInAmount,
-                      tokenOut: parameters.dstChainTokenOut,
-                      tokenOutRecipient: userAddress,
-                      slippage: parameters.slippage?.toString() || "auto",
-                      affiliateFeePercent: "0",
-                  })}`
-                : `${this.options.baseUrl}/dln/order/create-tx?${new URLSearchParams({
-                      srcChainId: parameters.srcChainId,
-                      srcChainTokenIn: parameters.srcChainTokenIn,
-                      srcChainTokenInAmount: parameters.srcChainTokenInAmount,
-                      dstChainId: parameters.dstChainId,
-                      dstChainTokenOut: parameters.dstChainTokenOut,
-                      dstChainTokenOutAmount: "auto",
-                      prependOperatingExpenses: "true",
-                      additionalTakerRewardBps: "0",
-                  })}`;
+                ? `${this.options.baseUrl}/chain/transaction?${params}`
+                : `${this.options.baseUrl}/dln/order/create-tx?${params}`;
 
             console.log("Making request to:", url);
 
@@ -154,9 +171,15 @@ From Solana:
             params.append("srcChainRefundAddress", parameters.senderAddress);
             // Always use dstChainTokenOutRecipient for destination chain authority
             params.append("dstChainOrderAuthorityAddress", parameters.dstChainTokenOutRecipient);
-            params.append("referralCode", "21064"); // Analytics
+            params.append("referralCode", parameters.referralCode || "21064"); // Analytics
             params.append("deBridgeApp", "GOAT"); // Analytics
             params.append("prependOperatingExpenses", "true");
+            if (parameters.affiliateFeeRecipient) {
+                params.append("affiliateFeeRecipient", parameters.affiliateFeeRecipient);
+            }
+            if (parameters.affiliateFeePercent) {
+                params.append("affiliateFeePercent", parameters.affiliateFeePercent.toString());
+            }
 
             const url = `${this.options.baseUrl}/dln/order/create-tx?${params}`;
 

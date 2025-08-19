@@ -134,6 +134,22 @@ export class getBridgeQuoteParametersSchema extends createToolParameters(
             .describe(
                 "Whether to include operating expenses in the transaction. Always true for native token transfers.",
             ),
+
+        /** Referral code */
+        referralCode: z.string().optional(),
+
+        /** Affiliate fee percentage */
+        affiliateFeePercent: z
+            .number()
+            .optional()
+            .describe("Optional: Affiliate fee percentage."),
+
+        /** Affiliate fee recipient */
+        affiliateFeeRecipient: z
+            .string()
+            .regex(EVM_ADDRESS_REGEX, "Affiliate fee recipient must be a valid EVM address")
+            .optional()
+            .describe("Optional: Affiliate fee recipient."),
     }),
 ) {}
 
@@ -240,6 +256,19 @@ export class createBridgeOrderParametersSchema extends createToolParameters(
 
         /** Referral code */
         referralCode: z.string().optional(),
+
+        /** Affiliate fee percentage */
+        affiliateFeePercent: z
+            .number()
+            .optional()
+            .describe("Optional: Affiliate fee percentage."),
+
+        /** Affiliate fee recipient */
+        affiliateFeeRecipient: z
+            .string()
+            .regex(EVM_ADDRESS_REGEX, "Affiliate fee recipient must be a valid EVM address")
+            .optional()
+            .describe("Optional: Affiliate fee recipient."),
 
         /** Whether to include operating expenses */
         prependOperatingExpenses: z
