@@ -1,6 +1,7 @@
 {
     "name": "@wardenprotocol/plugin-uniswap",
     "version": "0.2.22",
+
     "files": ["dist/**/*", "README.md", "package.json"],
     "scripts": {
         "build": "tsup",
