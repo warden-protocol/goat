@@ -1,9 +1,9 @@
 import { type Chain, PluginBase } from "@goat-sdk/core";
-import { arbitrum, avalanche, base, celo, mainnet, optimism, polygon, zora } from "viem/chains";
+import { arbitrum, avalanche, base, bsc, celo, mainnet, optimism, polygon, zora } from "viem/chains";
 import type { UniswapCtorParams } from "./types/UniswapCtorParams";
 import { UniswapService } from "./uniswap.service";
 
-const SUPPORTED_CHAINS = [mainnet, polygon, avalanche, base, optimism, zora, arbitrum, celo];
+const SUPPORTED_CHAINS = [mainnet, polygon, avalanche, base, optimism, zora, arbitrum, celo, bsc];
 
 export class UniswapPlugin extends PluginBase {
     constructor(params: UniswapCtorParams) {

@@ -3,7 +3,6 @@ import { EVMWalletClient } from "@goat-sdk/wallet-evm";
 import { fromHex } from "viem";
 import { CheckApprovalBodySchema, GetQuoteParameters } from "./parameters";
 import type { UniswapCtorParams } from "./types/UniswapCtorParams";
-import { fromHex } from "viem";
 
 export class UniswapService {
     constructor(private readonly params: UniswapCtorParams) {}
