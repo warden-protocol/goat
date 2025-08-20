@@ -1,5 +1,12 @@
 # @goat-sdk/plugin-pumpfun
 
+## 0.1.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @goat-sdk/wallet-solana@0.3.1
+
 ## 0.1.9
 
 ### Patch Changes

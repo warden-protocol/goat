@@ -1,5 +1,13 @@
 # @goat-sdk/plugin-solana-nfts
 
+## 0.2.17
+
+### Patch Changes
+
+- Upgrade solana version
+- Updated dependencies
+  - @goat-sdk/wallet-solana@0.3.1
+
 ## 0.2.16
 
 ### Patch Changes

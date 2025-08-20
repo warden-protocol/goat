@@ -1,5 +1,11 @@
 # @goat-sdk/plugin-uniswap
 
+## 0.2.16
+
+### Patch Changes
+
+- c952857: Fix type
+
 ## 0.2.15
 
 ### Patch Changes
