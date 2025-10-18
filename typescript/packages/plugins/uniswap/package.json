@@ -1,6 +1,7 @@
 {
     "name": "@wardenprotocol/plugin-uniswap",
-    "version": "0.2.16",
+    "version": "0.2.22",
+
     "files": ["dist/**/*", "README.md", "package.json"],
     "scripts": {
         "build": "tsup",
@@ -12,14 +13,14 @@
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
     "dependencies": {
-        "@goat-sdk/core": "workspace:*",
-        "@goat-sdk/wallet-evm": "workspace:*",
-        "viem": "catalog:",
-        "zod": "catalog:"
+        "@goat-sdk/core": "^0.5.0",
+        "@goat-sdk/wallet-evm": "^0.3.0",
+        "viem": "^2.23.4",
+        "zod": "^3.23.8"
     },
     "peerDependencies": {
-        "@goat-sdk/core": "workspace:*",
-        "viem": "catalog:"
+        "@goat-sdk/core": "^0.5.0",
+        "viem": "^2.23.4"
     },
     "homepage": "https://ohmygoat.dev",
     "repository": {
