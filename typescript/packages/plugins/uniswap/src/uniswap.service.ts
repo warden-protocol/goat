@@ -15,6 +15,7 @@ export class UniswapService {
             body: JSON.stringify(parameters),
             headers: {
                 "x-api-key": this.params.apiKey,
+                "Content-Type": "application/json"
             },
         });
 
