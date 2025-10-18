@@ -1,6 +1,6 @@
 {
     "name": "@wardenprotocol/plugin-uniswap",
-    "version": "0.2.22",
+    "version": "0.2.23",
 
     "files": ["dist/**/*", "README.md", "package.json"],
     "scripts": {
